@@ -1,4 +1,4 @@
-# Team Chemical – AI Powered Learning Management System
+# AI Powered Learning Management System
 
 An AI-powered Learning Management System (LMS) built using Flask and Google Gemini API.  
 The platform enables learners and mentors to manage courses, assignments, and AI-assisted learning efficiently.
