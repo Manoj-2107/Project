@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Assignments</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="right" style="width:100%; min-height:100vh; padding:20px; background:#f9f9f9;">
+  <div class="content" style="text-align:center;">
+    <h2 style="color:#673AB7;">Learner Assignments 📚</h2>
+
+    {% if assignments %}
+      <div style="margin-top:2em; text-align:left;">
+        {% for learner, learner_assignments in assignments.items() %}
+          <div style="background:#fff; padding:15px; margin-bottom:20px; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h3 style="color:#212121;">Learner: {{ learner }}</h3>
+            <ul style="list-style:none; padding:0;">
+              {% for assignment in learner_assignments %}
+                <li style="border-top:1px solid #eee; padding:10px 0;">
+                  <strong>Course:</strong> {{ courses[assignment.course_id].title if assignment.course_id < courses|length else 'Unknown' }}<br>
+                  <strong>Assignment Title:</strong> {{ assignment.title }}<br>
+                  <strong>Answer:</strong> {{ assignment.answer }}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p style="margin-top:2em;">No assignments submitted yet.</p>
+    {% endif %}
+
+    <div style="margin-top:2em;">
+      <button class="login" onclick="location.href='/mentor_dashboard'">Back to Dashboard</button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

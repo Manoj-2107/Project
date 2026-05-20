@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learner Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="left" style="width:100%; min-height:100vh; padding: 20px; background:#2C3034;">
+    <div class="content" style="text-align:center;">
+      <h2 style="color:#03A9F4;">Welcome, {{ username }}! 🎓</h2>
+      <p style="color:#e3e3e3; font-size:1.2em; margin-top:1em;">Start your DevOps journey with Team Chemicals!</p>
+      <div style="margin-top:1em; background:#03A9F4; padding:10px 20px; border-radius:8px; display:inline-block;">
+        <p style="color:white; font-weight:bold; margin:0;">🧩 Course Progress: {{ progress_percentage }}% Complete 🎯</p>
+      </div>
+      <h3 style="color:#03A9F4; margin-top:2em;">Available Courses:</h3>
+
+      <div style="margin-top:2em; display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+        {% if courses %}
+          {% for course in courses %}
+          <div style="background:#f9f9f9; color:#212121; width:300px; padding:20px; border-radius:12px; box-shadow: 0px 2px 10px rgba(0,0,0,0.1); text-align:left;">
+            <h3 style="margin-bottom:10px;">
+              {{ course.title }}
+              {% if loop.index0 in user_progress %}
+                <span style="color:green; font-size:0.7em;">✅ Started</span>
+              {% endif %}
+            </h3>
+                        <p style="font-size:0.95em;">{{ course.description }}</p>
+            <small style="color:#888;">Uploaded by: {{ course.mentor }}</small>
+
+            <form action="/start_course/{{ loop.index0 }}" method="post" style="margin-top:15px; text-align:center;">
+              <button type="submit" class="signup" style="width:100%;">Start Course</button>
+            </form>
+            <form action="/submit_assignment/{{ loop.index0 }}" method="get" style="margin-top:10px; text-align:center;">
+              <button type="submit" class="login" style="width:100%;">Submit Assignment</button>
+            </form>
+            
+          </div>
+          {% endfor %}
+        {% else %}
+          <p>No courses available yet. Please check back later!</p>
+        {% endif %}
+      </div>
+
+      <div style="margin-top:3em;">
+        <button class="signup" onclick="location.href='/learning'">Go to Learning</button>
+        <button class="off signup" onclick="location.href='/'">Logout</button>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

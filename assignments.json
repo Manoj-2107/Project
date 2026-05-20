@@ -1,0 +1,9 @@
+{
+    "AYUSH": [
+        {
+            "course_id": 0,
+            "title": "Devops",
+            "answer": "DevOps is a way of working where software development (Dev) and IT operations (Ops) teams collaborate closely to build, test, and release software faster and more reliably. It focuses on automation, continuous integration, and continuous delivery to improve efficiency and product quality."
+        }
+    ]
+}

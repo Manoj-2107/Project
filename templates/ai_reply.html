@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Reply - Team Chemicals</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    /* Small additional styles for AI Reply */
+    .ai-reply-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #2C3034;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .ai-reply-box {
+      background: #f9f9f9;
+      color: #212121;
+      padding: 20px 30px;
+      border-radius: 10px;
+      max-width: 700px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
+
+    .ai-buttons {
+      margin-top: 20px;
+    }
+
+    .ai-buttons button {
+      margin: 0 10px;
+    }
+    .ai-reply-box {
+  background: #f9f9f9;
+  color: #212121;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 700px;
+  max-height: 400px; /* Limit height */
+  overflow-y: auto; /* Make it scrollable */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="ai-reply-container">
+  <h2 style="color: #03A9F4; margin-bottom: 20px;">AI Reply</h2>
+  <div class="ai-reply-box">
+    {{ ai_reply }}
+  </div>
+
+  <div class="ai-buttons">
+    <button class="signup" onclick="window.location.href='/learning'">Back to Learning</button>
+    <button class="off signup" onclick="window.location.href='/'">Logout</button>
+  </div>
+</div>
+
+</body>
+</html>

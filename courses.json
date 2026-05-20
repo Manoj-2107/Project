@@ -1,0 +1,12 @@
+[
+    {
+        "title": "devops",
+        "description": "DevOps is a way of working where software development (Dev) and IT operations (Ops) teams collaborate closely to build, test, and release software faster and more reliably. It focuses on automation, continuous integration, and continuous delivery to improve efficiency and product quality.\r\n",
+        "mentor": "Manoj"
+    },
+    {
+        "title": "Unit 1: Introduction to DevOps",
+        "description": "What is DevOps?\r\n\r\nHistory & evolution from Agile to DevOps\r\n\r\nGoals and benefits of DevOps\r\n\r\nDevOps lifecycle overview (Plan, Develop, Build, Test, Release, Deploy, Operate, Monitor)\r\n\r\nDifferences between DevOps, Agile, and traditional models (Waterfall)",
+        "mentor": "Manoj"
+    }
+]

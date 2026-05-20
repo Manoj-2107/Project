@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="right" style="width:100%; height:100%; display:flex; justify-content:center; align-items:center; background:#f9f9f9;">
+    <div class="content" style="text-align:center;">
+      <h2 style="color:#673AB7;">Welcome Mentor, {{ username }}! 🎯</h2>
+      <p style="color:#212121; font-size:1.2em; margin-top:1em;">Guide learners on their DevOps journey with Team Chemicals!</p>
+      
+      <div style="margin-top:2em;">
+        <button class="login" onclick="location.href='/view_learners'">View Learners</button>
+        <button class="login" onclick="location.href='/view_assignments'">View Assignments</button>
+        <button class="upload-button" onclick="location.href='/upload_course'" style="background-color: #673AB7">Upload Course</button>
+        <button class="off login" onclick="location.href='/'">Logout</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

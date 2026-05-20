@@ -1,0 +1,32 @@
+{
+    "PGD202461323": {
+        "email": "mt428966@gmail.com",
+        "password": "1976",
+        "role": "learner"
+    },
+    "Manoj": {
+        "email": "mt4289656@gmail.com",
+        "password": "4563",
+        "role": "mentor"
+    },
+    "manoj": {
+        "email": "mt428966@gmail.com",
+        "password": "",
+        "role": "mentor"
+    },
+    "ayush": {
+        "email": "mt428966@gmail.com",
+        "password": "2388",
+        "role": "learner"
+    },
+    "AYUSH": {
+        "email": "ayush@gmail.com",
+        "password": "5555",
+        "role": "learner"
+    },
+    "ii": {
+        "email": "mt@gmail.com",
+        "password": "1234",
+        "role": "learner"
+    }
+}
