@@ -60,7 +60,11 @@ Project/
 │   ├── mentor_dashboard.html
 │   ├── learning_page.html
 │   ├── upload_course.html
-│   └── ...
+│   └── ai_reply
+│   ├── modern_login_signin_form
+│   └── Submit_assignment
+│   ├── View_assignment
+│   └── view_learners
 │
 ├── static/
 │   └── style.css
