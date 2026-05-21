@@ -47,7 +47,7 @@ The platform enables learners and mentors to manage courses, assignments, and AI
 ## Project Structure
 
 ```bash
-team_chemical/
+Project/
 │
 ├── app.py
 ├── users.json
