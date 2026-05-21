@@ -1,17 +1,24 @@
-import google.generativeai as genai
-from flask import Flask, render_template, request, redirect, url_for, session,flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import json
 import os
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+load_dotenv()
+
+genai.configure(
+    api_key=os.getenv("GEMINI_API_KEY")
+)
+
+model = genai.GenerativeModel(
+    "models/gemini-flash-latest"
+)
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Needed for session management 
 
-genai.configure(api_key="AIzaSyArZ5fL6bQS3eoQZvCVdPAo_sC571jNBbw")
-model = genai.GenerativeModel(model_name='models/gemini-1.5-pro-latest')
+app.secret_key = "your_secret_key"
 
-USERS_FILE = 'users.json'  # JSON file to store users
-
-# Helper function to load users
+USERS_FILE = 'users.json'# Helper function to load users
 def load_users():
     if os.path.exists(USERS_FILE):
         with open(USERS_FILE, 'r') as f:
@@ -160,16 +167,29 @@ def logout():
 
 @app.route('/chatbot', methods=['POST'])
 def chatbot_response():
+
     question = request.form.get('question')
 
     if question:
-        model = genai.GenerativeModel(model_name='models/gemini-1.5-pro-latest')
-        response = model.generate_content(question)
-        ai_reply = response.text
-        return render_template('ai_reply.html', ai_reply=ai_reply)
-    else:
-        return redirect(url_for('learning'))
-    
+
+        try:
+
+            response = model.generate_content(question)
+
+            ai_reply = response.text
+
+        except Exception as e:
+
+            ai_reply = f"Error: {str(e)}"
+
+        return render_template(
+            'ai_reply.html',
+            ai_reply=ai_reply
+        )
+
+    return redirect(url_for('learning'))
+
+
 @app.route('/view_learners')
 def view_learners():
     if 'username' in session and session.get('role') == 'mentor':
